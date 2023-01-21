@@ -1,9 +1,24 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Modal from "./component/modal/modal";
+import PostList from "./component/PostList";
 
 
 const App = () => {
-    return(<h1>App</h1>)
+    const [data,setData] = useState([])
+
+    const fetchData =  async ()=>{
+      const data = await  fetch('https://jsonplaceholder.typicode.com/posts')
+        const response  = await data.json()
+        setData(response)
+    }
+    useEffect(()=>{
+        fetchData()
+    //    fetchData
+    },[])
+    return(<>{
+        data && <PostList posts={data}/>}</>)
+
+
 
     // const [isModal, setModal] = useState(false);
     // return (<>

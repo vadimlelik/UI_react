@@ -31,7 +31,6 @@ const Modal = ({isVisible = false, title, children, onClose}) => {
                     <div className="modal-content">{children}</div>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 };
 export default Modal;
